@@ -12,6 +12,7 @@ import { DialogueboxComponent } from '../dialoguebox/dialoguebox.component';
 export class RecentSearchComponent implements OnInit {
   showPrompt = false;
   data: any = [];
+   
   openDialogueboc() {
     this.showPrompt = true;
   }
@@ -20,6 +21,9 @@ export class RecentSearchComponent implements OnInit {
   }
   handleClick(index: number) {
     localStorage.setItem('favourite', JSON.stringify(this.data));
+  }
+  roundNumber(number:number){
+    return Math.round(number)
   }
 
   handleResponse(response: boolean) {

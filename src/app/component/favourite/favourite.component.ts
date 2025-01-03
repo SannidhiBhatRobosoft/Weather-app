@@ -16,6 +16,9 @@ export class FavouriteComponent implements OnInit{
    this.data = JSON.parse(localStorage.getItem('favourite') || '[]');
   
  }
+ roundNumber(number:number){
+  return Math.round(number)
+}
   openDialogueboc() {
     this.showPrompt = true; 
   }

@@ -21,22 +21,30 @@
   color: var(--yellow);
 }
 
+.place {
+  flex-basis: 30%;
+}
+
 .content {
-  gap: 20px;
+  flex-basis: 40%;
+  gap: 10px;
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  padding: 10px;
 }
+
 .icon {
   font-size: 40px;
 }
 .tempandclimate {
   display: flex;
-  gap: 2rem;
+  gap: 10px;
   align-items: center;
+  flex-basis: 70%;
 }
 .temp {
   font-size: 35px;
+  flex-basis: 50%;
 }
 .temp span {
   font-size: 25px;
@@ -57,30 +65,28 @@
 .remove span {
   cursor: pointer;
 }
-.noitemfound{
-    min-height: 76vh;
-    align-items: center;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.noitemfound {
+  min-height: 76vh;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.noitemfound i{
-    font-size: 7rem;
+.noitemfound i {
+  font-size: 7rem;
 }
-.noitemfound p{
-    font-size: 1.5rem;
+.noitemfound p {
+  font-size: 1.5rem;
 }
 
-
-.fav-list-mobile{
+.fav-list-mobile {
   display: none;
 }
 @media screen and (max-width: 775px) {
-
-.items{
-  display: none;
-}
+  .items {
+    display: none;
+  }
 
   .fav-list-mobile {
     display: flex;
@@ -89,59 +95,70 @@
     background: rgba(255, 255, 255, 0.1);
     padding: 0.5rem;
     margin: 0.5rem 0;
- 
-}
- 
- 
- 
-.fav-item-title-mobile h1 {
+  }
+
+  .fav-item-title-mobile h1 {
     margin: 0;
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--yellow);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin-bottom: .4rem;
-}
- 
- 
-.fav-item-middle-mobile {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+    margin-bottom: 0.4rem;
+  }
+
+  .fav-item-middle-mobile {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-}
- 
- 
-.fav-item-img2-mobile img {
+  }
+
+  .fav-item-img2-mobile img {
     width: 22px;
     height: 22px;
-}
- 
-.fav-item-temp-mobile h1 {
+  }
+
+  .fav-item-temp-mobile h1 {
     margin: 0;
     font-size: 1rem;
     font-weight: 700;
     color: #fff;
-}
- 
-.fav-item-temp-mobile span {
+  }
+
+  .fav-item-temp-mobile span {
     font-size: 0.8rem;
     font-weight: 400;
     margin-left: 0.2rem;
-}
- 
-.fav-item-temp-title-mobile h1 {
+  }
+
+  .fav-item-temp-title-mobile h1 {
     margin: 0;
     font-size: 0.9rem;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
     font-weight: 400;
     color: #f0f0f0;
-}
- 
- 
-.fav-item-img-1-mobile img {
+  }
+
+  .fav-item-img-1-mobile img {
     width: 18px;
     height: 18px;
     cursor: pointer;
- 
+  }
 }
+@media screen and (max-width: 1000px) {
+  .place p{
+    font-size: 1.5rem;
+  }
+  .content img{
+    width: 40px;
+  }
+  .temp{
+font-size: 1.8rem;
+  }
+  .climate{
+    font-size: 1.1rem;
+  }
 }

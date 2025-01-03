@@ -12,16 +12,16 @@
     </div>
     <div class="content">
      <div>
-       <!-- <img src={{item.icon}} alt="Fav"  /> -->
+       <img src={{item.icon}} alt="Fav"  />
      </div>
       <div class="tempandclimate">
-        <!-- <span class="temp"> {{item.temp_c}} ° <span>C</span> </span> 
+        <span class="temp"> {{roundNumber(item.temp_c)}}° <span>C</span> </span> 
         
-        <span class="climate">{{item.text}}</span> -->
+        <span class="climate">{{item.text}}</span>
       </div>
     </div>
     <div>
-      <img src="/icons/icon_favourite_Active.png" alt="Fav" (click)="handleClick(i)" />    </div>
+      <img src="icons/icon_favourite.png" style="width: 20px;" alt="Fav" (click)="handleClick(i)" />    </div>
   </div>
 
   <div class="fav-list-mobile" *ngFor="let data of data">
@@ -49,7 +49,7 @@
   
     </div>
     <div class="fav-item-img-1-mobile">
-        <img src="icons/icon_favourite_Active.png" alt="Favorite Icon">
+        <img src="icons/icon_favourite.png" alt="Favorite Icon">
     </div>
   </div>
   
