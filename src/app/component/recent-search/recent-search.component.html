@@ -1,0 +1,77 @@
+<div class="favouriteContainer">
+  @if(data.length>0){
+
+  
+  <div class="remove" >
+    <span>{{ data.length }} {{ data.length === 1 ? 'City' : 'Cities' }} added as Favourite</span>
+    <span (click)="openDialogueboc()">Remove all</span>
+  </div>
+  <div class="items" *ngFor="let item of data;let i = index">
+    <div class="place">
+      <p >{{item.name}} ,{{item.region}}</p>
+    </div>
+    <div class="content">
+     <div>
+       <img src={{item.icon}} alt="Fav"  />
+     </div>
+      <div class="tempandclimate">
+        <span class="temp"> {{item.temp_c}} ° <span>C</span> </span> 
+        
+        <span class="climate">{{item.text}}</span>
+      </div>
+    </div>
+    <div>
+      <img src="/icons/icon_favourite_Active.png" alt="Fav" (click)="handleClick(i)" />    </div>
+  </div>
+
+  <div class="fav-list-mobile" *ngFor="let data of data">
+    <div class="fav-item-mobile" >
+  
+        <div class="fav-item-title-mobile">
+            <h1 class="fav-item-text-mobile">{{data.name}}, {{data.region}}</h1>
+        </div>
+  
+  
+        <div class="fav-item-middle-mobile">
+            <div class="fav-item-img2-mobile">
+                <img [src]="data.icon" alt="Weather Icon">
+            </div>
+  
+            <div class="fav-item-temp-mobile">
+                <h1>{{data.temp_c}}<span>°C</span></h1>
+            </div>
+  
+            <div class="fav-item-temp-title-mobile">
+                <h1>{{data.text}}</h1>
+            </div>
+        </div>
+  
+  
+    </div>
+    <div class="fav-item-img-1-mobile">
+        <img src="icons/icon_favourite_Active.png" alt="Favorite Icon">
+    </div>
+  </div>
+  
+  <app-dialoguebox
+    *ngIf="showPrompt"
+    (response)="handleResponse($event)"
+  ></app-dialoguebox>
+}
+@else {
+  <div class="noitemfound">
+    <i class="fas fa-box-open"></i>
+    <p>No Favourites Added</p>
+
+  </div>
+
+
+
+  
+
+}
+
+
+
+
+</div>

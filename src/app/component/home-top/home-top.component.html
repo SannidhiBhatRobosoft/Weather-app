@@ -1,0 +1,16 @@
+<div class="homeContainer">
+  <div class="homeroute">
+    <div class="homeRoute">
+      <p [class.active]="currentTab === 'home'" (click)="navigateTo('home')">HOME</p>
+      <p [class.active]="currentTab === 'favourite'" (click)="navigateTo('favourite')">FAVOURITE</p>
+      <p [class.active]="currentTab === 'recentsearch'" (click)="navigateTo('recentsearch')">RECENT SEARCH</p>
+     
+    </div>
+    <div class="date">
+      <p>{{ formattedTime }}</p>
+
+
+    </div>
+  </div>
+  <div class="line"></div>
+</div>

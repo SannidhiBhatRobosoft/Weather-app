@@ -1,1 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --white: #ffffff;
+    --yellow: #ffd639;
+    --red: #e32843;
+    --blueGrey: #75889f;
+    --purple: rgba(136, 81, 204, 0.68);
+    --grey: rgba(255, 255, 255, 0.184);
+  }
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--white);
+   
+  }
+body {
+    background-image: url('../public/img/background.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    max-width: 100vw;
+    margin: 0 10%;
+    overflow: hidden;
+    
+    
+  }
+
+
+  @media screen and (max-width: 775px) {
+    body {
+      margin: 0 3%;
+    }
+  }

@@ -1,0 +1,123 @@
+.homebodyContainer {
+  padding-top: 3%;
+  min-height: 48vh;
+  padding-bottom: 1rem;
+}
+.location {
+  font-size: 2rem;
+}
+.addfav {
+  align-items: center;
+  padding: 1% 0;
+  display: flex;
+  gap: 10px;
+}
+.addfav img {
+  height: 1rem;
+}
+.addedtoFav {
+  color: var(--yellow);
+}
+.body {
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.sunnyicon {
+  font-size: 90px;
+}
+
+.temperature{
+  display: flex;
+}
+
+.buttons{
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  
+}
+
+.temperature h1 {
+  font-size: 5rem;
+  font-weight: 500;
+  
+}
+.climate h1 {
+  font-size: 1.5rem;
+}
+.date {
+  text-align: center;
+  align-items: center;
+  display: none;
+  width: max-content;
+  font-size: 1.1rem;
+}
+.date p {
+  color: var(--grey);
+}
+.climate h1 {
+  font-size: 1.5rem;
+  margin-top: 5px;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  margin-left: 1rem;
+  
+}
+
+.buttons>button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  
+}
+
+.buttons button {
+  padding: 8px 15px;
+  font-size: 1rem;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  cursor: pointer;
+ 
+   /* Text color changes to red */
+}
+.buttons button.active {
+  background-color: white;
+  color: red;
+ 
+}
+
+@media screen and (max-width: 774px) {
+  .date {
+    display: block;
+    margin: auto;
+    margin-top: 27px;
+  }
+  .location {
+    display: flex;
+    justify-content: center;
+  }
+  .addfav {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  .homebodyContainer {
+    gap: 15px;
+    padding-bottom: 0;
+  }
+  .homeBodywrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+  }
+}

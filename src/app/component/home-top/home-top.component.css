@@ -1,0 +1,61 @@
+.homeContainer {
+  padding-top: 15px ;
+  
+}
+.homeroute {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.homeRoute {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+.homeRoute p {
+  font-size: 1.1rem;
+}
+.date p {
+  width: max-content;
+  font-size: 1.1rem;
+}
+.line {
+  width: 100%;
+  border-bottom: 1px solid #ffffff41;
+}
+.homeRoute {
+  display: flex;
+  gap: 20px;
+  position: relative;
+}
+
+.homeRoute p {
+  margin: 0;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 18px;
+  position: relative;
+  text-align: center;
+  color: var(--white);
+}
+
+.homeRoute p.active {
+  color: var(--yellow);
+  font-weight: bold;
+}
+
+.homeRoute p.active::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: var(--yellow); 
+  position: absolute;
+  bottom: -1px; 
+  right: 0;
+  width: 100%;
+}
+@media screen and (max-width: 774px){
+  .homeContainer{
+    display: none;
+  }
+}
