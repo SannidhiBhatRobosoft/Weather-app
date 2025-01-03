@@ -3,7 +3,7 @@
 
   
   <div class="remove" >
-    <span>{{ data.length }} {{ data.length === 1 ? 'City' : 'Cities' }} added as Favourite</span>
+    <span> You recently searched for</span>
     <span (click)="openDialogueboc()">Remove all</span>
   </div>
   <div class="items" *ngFor="let item of data;let i = index">
@@ -12,12 +12,12 @@
     </div>
     <div class="content">
      <div>
-       <img src={{item.icon}} alt="Fav"  />
+       <!-- <img src={{item.icon}} alt="Fav"  /> -->
      </div>
       <div class="tempandclimate">
-        <span class="temp"> {{item.temp_c}} ° <span>C</span> </span> 
+        <!-- <span class="temp"> {{item.temp_c}} ° <span>C</span> </span> 
         
-        <span class="climate">{{item.text}}</span>
+        <span class="climate">{{item.text}}</span> -->
       </div>
     </div>
     <div>

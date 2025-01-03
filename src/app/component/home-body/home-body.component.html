@@ -1,42 +1,45 @@
-<div class="homeBodywrapper">
-  <div class="homebodyContainer">
-    <div class="date">
-      <p>{{formattedTime}}</p>
-    </div>
-    <div class="location">
-      <p>{{data.location.name}},{{data.location.region}}</p>
-    </div>
-    @if(!flag){
-    <div class="addfav" (click)="handleClick()">
-      <img src="icons/icon_favourite.png" />
-      <p>Add to favourite</p>
-    </div>
-    } @else {
-    <div class="addfav" (click)="handleClick()">
-      <img src="icons/icon_favourite_Active.png" />
-      <p class="addedtoFav">Added to favourite</p>
-    </div>
-    }
-    <div class="body">
-      <img src={{data.current.condition.icon}} />
-      <div class="temperature">
-        <h1>{{currentTemperature}} 
-        </h1>
-        <div class="buttons">
-          <button 
-            [ngClass]="{'active': isCelsiusSelected}" 
-            (click)="convertToCelsius()">°C
-          </button>
-          <button 
-            [ngClass]="{'active': !isCelsiusSelected}" 
-            (click)="convertToFahrenheit()">°F
-          </button>
-        </div>
+
+  <div class="homeBodywrapper">
+    <div class="homebodyContainer">
+      <div class="date">
+        <p>{{formattedTime}}</p>
       </div>
-      <div class="climate">
-        <h1>{{data.current.condition.text}}</h1>
+      <div class="location">
+        <p>{{data.location.name}},{{data.location.region}}</p>
+      </div>
+      @if(!flag){
+      <div class="addfav" (click)="handleClick()">
+        <img src="icons/icon_favourite.png" />
+        <p>Add to favourite</p>
+      </div>
+      } @else {
+      <div class="addfav" (click)="handleClick()">
+        <img src="icons/icon_favourite_Active.png" />
+        <p class="addedtoFav">Added to favourite</p>
+      </div>
+      }
+      <div class="body">
+        <img src={{data.current.condition.icon}} />
+        <div class="temperature">
+          <h1>{{currentTemperature}} 
+          </h1>
+          <div class="buttons">
+            <button 
+              [ngClass]="{'active': isCelsiusSelected}" 
+              (click)="convertToCelsius()">°C
+            </button>
+            <button 
+              [ngClass]="{'active': !isCelsiusSelected}" 
+              (click)="convertToFahrenheit()">°F
+            </button>
+          </div>
+        </div>
+        <div class="climate">
+          <h1>{{data.current.condition.text}}</h1>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<app-footer></app-footer>
+  <app-footer></app-footer>
+  
+

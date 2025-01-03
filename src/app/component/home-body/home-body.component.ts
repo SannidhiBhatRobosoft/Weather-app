@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FooterComponent } from '../footer/footer.component';
 import { CommonModule, DatePipe } from '@angular/common';
+import { SharedService } from '../../services/shared.service';
 @Component({
   selector: 'app-home-body',
   standalone: true,
@@ -11,7 +12,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 })
 export class HomeBodyComponent implements OnInit {
   flag: boolean = false;
-  constructor(private datePipe: DatePipe) {}
+  constructor(private datePipe: DatePipe, private sharedService: SharedService) {}
 
   handleClick() {
     const favouriteList = JSON.parse(localStorage.getItem('favourite') || '[]');
@@ -27,8 +28,7 @@ export class HomeBodyComponent implements OnInit {
     const exists = favouriteList.some(
       (item: any) =>
         item.name === tempData.name &&
-        item.region === tempData.region &&
-        item.localtime === tempData.localtime
+        item.region === tempData.region 
     );
 
     if (!exists) {
@@ -43,14 +43,40 @@ export class HomeBodyComponent implements OnInit {
   currentUnit: string = 'C';
   isCelsiusSelected: boolean = true;
   formattedTime: string = '';
+  favorate:boolean=false;
+  favlist:any={};
   ngOnInit(): void {
-    this.data = JSON.parse(localStorage.getItem('weatherData') || '{}');
+   this.data = JSON.parse(localStorage.getItem('weatherData') || '{}');
+  
+   this.favlist = JSON.parse(localStorage.getItem('favourite') || '{}');
+   this.favorate = this.isFavourite(this.data.location?.name);
+  // if(this.favorate){
+  //   this.flag=true
+  // }
     this.currentTemperature = this.data.current.temp_c;
     this.formattedTime =
       this.datePipe.transform(
         this.data.location.localtime,
         'EEE, d MMM yyyy h:mm a'
       ) || '';
+
+      this.sharedService.currentData.subscribe((data) => {
+        
+        this.data=data
+      });
+   
+   
+  }
+  isFavourite(locationName: string): boolean {
+   
+    return this.favlist.some(
+      (fav:any) => {
+        fav.location?.name === locationName
+        // console.log("checking");
+        // console.log(fav.location.name);
+        // console.log(locationName);
+      }
+    );
   }
   setTemperatureInCelsius() {
     // Set the temperature initially in Celsius
@@ -60,7 +86,8 @@ export class HomeBodyComponent implements OnInit {
 
   setTemperatureInFahrenheit() {
     // Convert temperature to Fahrenheit
-    this.currentTemperature = (this.data.current.temp_c * 9) / 5 + 32;
+    this.currentTemperature = parseFloat(((this.data.current.temp_c * 9) / 5 + 32).toFixed(2));
+
     this.currentUnit = 'F';
   }
 

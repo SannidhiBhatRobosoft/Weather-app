@@ -14,13 +14,12 @@ export class HomeTopComponent implements OnInit {
  data:any={}
   currentTab: string = 'home';
   formattedTime: string = '';
-
+ 
   constructor(private router: Router, private datePipe: DatePipe) {}
-
+  
   ngOnInit() {
     this.data = JSON.parse(localStorage.getItem('weatherData') || '{}');
     this.formattedTime = this.datePipe.transform(this.data.location.localtime, 'EEE, d MMM yyyy h:mm a') || '';
-    
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         const url = this.router.url.split('/')[1];

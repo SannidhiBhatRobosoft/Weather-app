@@ -94,6 +94,21 @@
   color: red;
  
 }
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ height: 70vh;
+}
+
+
+.loader p {
+  font-size: 20px;
+  margin-top: 10px;
+  color: var(--white);
+}
+
 
 @media screen and (max-width: 774px) {
   .date {

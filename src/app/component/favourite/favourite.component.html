@@ -24,7 +24,7 @@
       <img src="/icons/icon_favourite_Active.png" alt="Fav" (click)="handleClick(i)" />    </div>
   </div>
 
-  <div class="fav-list-mobile" *ngFor="let data of data">
+  <div class="fav-list-mobile" *ngFor="let data of data;let i = index">
     <div class="fav-item-mobile" >
   
         <div class="fav-item-title-mobile">
@@ -49,7 +49,7 @@
   
     </div>
     <div class="fav-item-img-1-mobile">
-        <img src="icons/icon_favourite_Active.png" alt="Favorite Icon">
+        <img src="icons/icon_favourite_Active.png" alt="Favorite Icon" (click)="handleClick(i)">
     </div>
   </div>
   
