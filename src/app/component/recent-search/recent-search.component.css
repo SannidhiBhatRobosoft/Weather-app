@@ -21,6 +21,10 @@
   color: var(--yellow);
 }
 
+.addfav>img{
+width: 25px;
+}
+
 .place {
   flex-basis: 30%;
 }

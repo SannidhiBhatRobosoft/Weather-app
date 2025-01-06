@@ -47,9 +47,8 @@ export class AppComponent implements OnInit {
   }
   handleSelectedItem(item: any) {
     const cityName = item && item.name ? item.name : 'Udupi'; // Check if item.name exists, else use 'Udupi'
-
     this.fetchWeatherData(cityName);
-    this.getfulldata(cityName)
+    this.getfulldata(cityName);
   }
 
   ngOnInit(cityName: string = 'Udupi'): void {
@@ -59,12 +58,11 @@ export class AppComponent implements OnInit {
     this.getCurrentWeather(location).subscribe(
       (res) => {
         this.data = res;
-        console.log("data called");
-        console.log(res);
+
         const recentList = JSON.parse(
           localStorage.getItem('recentSearch') || '[]'
         );
-        
+        const favList = JSON.parse(localStorage.getItem('favourite') || '[]');
         let tempData = {
           name: res.location.name,
           region: res.location.region,
@@ -72,6 +70,11 @@ export class AppComponent implements OnInit {
           text: res.current.condition.text,
           icon: res.current.condition.icon,
           temp_c: res.current.temp_c,
+          flag: favList.some(
+            (favItem: any) =>
+              favItem.name === res.location.name &&
+              favItem.region === res.location.region
+          ),
         };
 
         const exists = recentList.some(
@@ -94,8 +97,16 @@ export class AppComponent implements OnInit {
     this.getCurrentWeather(location).subscribe(
       (res) => {
         this.data = res;
-        this.sharedService.updateData(res);
-        localStorage.setItem('weatherData', JSON.stringify(res)); // Store in localStorage
+        const recentList = JSON.parse(
+          localStorage.getItem('favourite') || '[]'
+        );
+        const recentIndex=recentList.some((recentItem: any) =>
+          recentItem.name === res.location.name &&
+          recentItem.region === res.location.region
+        );
+       this.data.flag=recentIndex
+        this.sharedService.updateData(this.data);
+        localStorage.setItem('weatherData', JSON.stringify(this.data)); 
       },
       (error) => {
         console.error(error); // Log errors
