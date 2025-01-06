@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, HostListener } from '@angular/core';
+import { Component, EventEmitter, Output, HostListener,Input } from '@angular/core';
 
 @Component({
   selector: 'app-dialoguebox',
@@ -9,7 +9,7 @@ import { Component, EventEmitter, Output, HostListener } from '@angular/core';
 })
 export class DialogueboxComponent {
   @Output() response = new EventEmitter<boolean>();
-  
+  @Input() text:string='';
   // Emits the user's response (true for Yes, false for No)
   handleResponse(answer: boolean) {
     this.response.emit(answer);

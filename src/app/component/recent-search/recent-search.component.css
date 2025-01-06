@@ -12,6 +12,7 @@
   color: white;
   margin-bottom: 1px;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 .items:hover {
   background-color: var(--grey);
@@ -22,7 +23,7 @@
 }
 
 .addfav>img{
-width: 25px;
+width: 18px;
 }
 
 .place {

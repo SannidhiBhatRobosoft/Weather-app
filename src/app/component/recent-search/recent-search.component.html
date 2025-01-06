@@ -6,7 +6,7 @@
     <span> You recently searched for</span>
     <span (click)="openDialogueboc()">Remove all</span>
   </div>
-  <div class="items" *ngFor="let item of data;let i = index">
+  <div class="items" *ngFor="let item of data;let i = index" (click)="handlePlaceClick(i)">
     <div class="place">
       <p >{{item.name}} ,{{item.region}}</p>
     </div>
@@ -20,14 +20,14 @@
         <span class="climate">{{item.text}}</span>
       </div>
     </div>
-    <div (click)="handleClick(i)"  class="addfav">
+    <div (click)="handleClick(i,$event)"  class="addfav">
       <img
       [src]="item.flag ? 'icons/icon_favourite_Active.png' : 'icons/icon_favourite.png'"
     />
      </div>
   </div>
 
-  <div class="fav-list-mobile" *ngFor="let data of data">
+  <div class="fav-list-mobile" *ngFor="let data of data;let i=index" (click)="handlePlaceClick(i)">
     <div class="fav-item-mobile" >
   
         <div class="fav-item-title-mobile">
@@ -51,7 +51,7 @@
   
   
     </div>
-    <div class="fav-item-img-1-mobile">
+    <div class="fav-item-img-1-mobile" (click)="handleClick(i,$event)">
         <img src="icons/icon_favourite.png" alt="Favorite Icon">
     </div>
   </div>
@@ -59,6 +59,7 @@
   <app-dialoguebox
     *ngIf="showPrompt"
     (response)="handleResponse($event)"
+    text="Are you sure want to remove all the Recent Search?"
   ></app-dialoguebox>
 }
 @else {

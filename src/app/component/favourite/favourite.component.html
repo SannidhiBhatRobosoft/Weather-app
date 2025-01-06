@@ -8,7 +8,7 @@
     >
     <span (click)="openDialogueboc()">Remove all</span>
   </div>
-  <div class="items" *ngFor="let item of data; let i = index">
+  <div class="items" *ngFor="let item of data; let i = index" (click)="handlePlaceClick(i)">
     <div class="place">
       <p>{{ item.name }} ,{{ item.region }}</p>
     </div>
@@ -28,12 +28,12 @@
       <img
         src="/icons/icon_favourite_Active.png"
         alt="Fav"
-        (click)="handleClick(i)"
+        (click)="handleClick(i,$event)"
       />
     </div>
   </div>
 
-  <div class="fav-list-mobile" *ngFor="let data of data; let i = index">
+  <div class="fav-list-mobile" *ngFor="let data of data; let i = index" (click)="handlePlaceClick(i)">
     <div class="fav-item-mobile">
       <div class="fav-item-title-mobile">
         <h1 class="fav-item-text-mobile">{{ data.name }}, {{ data.region }}</h1>
@@ -57,7 +57,7 @@
       <img
         src="icons/icon_favourite_Active.png"
         alt="Favorite Icon"
-        (click)="handleClick(i)"
+        (click)="handleClick(i,$event)"
       />
     </div>
   </div>
@@ -65,6 +65,7 @@
   <app-dialoguebox
     *ngIf="showPrompt"
     (response)="handleResponse($event)"
+    text="Are you sure want to remove all the favourites?"
   ></app-dialoguebox>
   } @else {
   <div class="noitemfound">
