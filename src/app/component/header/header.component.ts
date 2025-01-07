@@ -17,7 +17,7 @@ import { Router, NavigationEnd } from '@angular/router';
 export class HeaderComponent {
   isSidebarOpen: boolean = false;
   currentTab: string = 'home';
-
+  isSearchSidebarOpen:boolean=false;
   toggleMenu() {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
@@ -25,6 +25,7 @@ export class HeaderComponent {
   @HostListener('document:click', ['$event'])
   onClickOutside(event: MouseEvent) {
     const sidebar = document.querySelector('.sidebar');
+   // const searchsidebar = document.querySelector('.searchsidebar');
     const hamburger = document.querySelector('.hamburger');
     const searchContainer = document.querySelector('.search');
 
@@ -86,11 +87,17 @@ export class HeaderComponent {
     this.searchQuery=item.name
     this.searchResults = []; 
     this.searchSelection.emit(item); 
-    // this.searchQuery=""
+    this.searchQuery=""
+    if(this.isSearchSidebarOpen){
+      this.isSearchSidebarOpen=false
+    }
   }
   navigateTo(tab: string) {
     this.currentTab = tab;
     this.toggleMenu();
     this.router.navigate([`/${tab}`]);
+  }
+  searchHandler(){
+    this.isSearchSidebarOpen=!this.isSearchSidebarOpen
   }
 }

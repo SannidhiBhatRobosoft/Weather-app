@@ -18,20 +18,48 @@
       autocomplete="off"
     />
     <button class="SearchSubmit" type="submit">
-      <img src="icons/icon_search_white.png" alt="Search" class="SearchIcon" />
+      <img
+        src="icons/icon_search_white.png"
+        alt="Search"
+        class="SearchIcon"
+        (click)="searchHandler()"
+      />
     </button>
     <div *ngIf="searchResults.length > 0" class="search-results">
       <div *ngFor="let result of searchResults">
-        <p class="search-result-1" (click)="onSuggestionClick(result)">{{ result.name }}, {{ result.region }}</p>
-        <!-- You can display more information about the result here -->
+        <p class="search-result-1" (click)="onSuggestionClick(result)">
+          {{ result.name }}, {{ result.region }}
+        </p>
       </div>
     </div>
   </div>
   <div class="sidebar" *ngIf="isSidebarOpen">
     <ul>
-      <li  (click)="navigateTo('home')">Home</li>
-      <li  (click)="navigateTo('favourite')">Favourite</li>
+      <li (click)="navigateTo('home')">Home</li>
+      <li (click)="navigateTo('favourite')">Favourite</li>
       <li (click)="navigateTo('recentsearch')">Recent Search</li>
     </ul>
   </div>
-</div>  
+  <div class="searchsidebar" *ngIf="isSearchSidebarOpen">
+    <div class="searchMobile">
+      <i class="fas fa-arrow-left" (click)="searchHandler()"></i>
+
+      <input
+        type="text"
+        class="SearchMobileInput"
+        placeholder="Search city"
+        [(ngModel)]="searchQuery"
+        (ngModelChange)="onSearchChange()"
+        name="search"
+        autocomplete="off"
+      />
+    </div>
+    <div *ngIf="searchResults.length > 0" class="search-results">
+      <div *ngFor="let result of searchResults">
+        <p class="search-result-1" (click)="onSuggestionClick(result)">
+          {{ result.name }}, {{ result.region }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

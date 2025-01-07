@@ -97,8 +97,27 @@ input::placeholder {
   flex-direction: column;
   padding: 20px;
   transform: translateX(-100%);
-  transition: transform 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
+.searchsidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width:90%;
+  height: 100%;
+  background-color: var(--white);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  transform: translateX(-100%);
+  transition: all 0.3s ease-in-out;
+  color: #000;
+}
+.searchsidebar i{
+  color: #000;
+}
+
 
 .sidebar ul {
   list-style: none;
@@ -122,13 +141,56 @@ input::placeholder {
   .sidebar {
     transform: translateX(0);
   }
+  .searchsidebar{
+    background-color: rgb(254, 255, 255);
+    transform: translateX(0);
+  }
+  
+  input::placeholder{
+    font-size: 1rem;
+    color: #000;
+  }
+  .searchMobile{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .SearchMobileInput{
+    color: #000;
+    width: 100%;
+    height: 2rem;
+    border: none;
+  }
+  .search-results{
+    position: fixed;
+    margin-top: -36rem;
+    color: #000;
+    width: 83%;
+    align-items: center;
+    margin-left: 42px;
+   
+  }
+  
+.search-results div {
+  padding: 17px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  color: black; 
+  font-size: 1rem;
+}
+
 
   .sidebar ul li {
-    color: black;
+    color: #a5a5a5;
   }
 
   .sidebar.open {
     transform: translateX(0);
+    
+  }
+  .searchsidebar.open {
+    transform: translateX(0);
+    
   }
 
   .logo img {
