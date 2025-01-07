@@ -93,15 +93,16 @@ export class HomeBodyComponent implements OnInit {
     );
   }
   setTemperatureInCelsius() {
-    // Set the temperature initially in Celsius
+   
     this.currentTemperature = this.data.current.temp_c;
+    
     this.currentUnit = 'C';
   }
 
   setTemperatureInFahrenheit() {
     // Convert temperature to Fahrenheit
     this.currentTemperature = parseFloat(
-      ((this.data.current.temp_c * 9) / 5 + 32).toFixed(2)
+      ((this.data.current.temp_c * 9) / 5 + 32).toFixed(1)
     );
 
     this.currentUnit = 'F';
