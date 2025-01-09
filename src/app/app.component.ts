@@ -51,8 +51,27 @@ export class AppComponent implements OnInit {
     this.getfulldata(cityName);
   }
 
-  ngOnInit(cityName: string = 'Udupi'): void {
-    this.fetchWeatherData(cityName);
+  ngOnInit(): void {
+    this.getLocation();
+   
+  }
+  getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => this.showPosition(position));
+    } else {
+      console.log('Geolocation is not supported by this browser.');
+    }
+  }
+
+  showPosition(position: any) {
+    const location = {
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude,
+    };
+    
+    localStorage.setItem('location', JSON.stringify(location));
+    
+    this.fetchWeatherData(`${ position.coords.latitude},${ position.coords.longitude}` || 'Bangalore');
   }
   getfulldata(location: string) {
     this.getCurrentWeather(location).subscribe(
@@ -100,13 +119,14 @@ export class AppComponent implements OnInit {
         const recentList = JSON.parse(
           localStorage.getItem('favourite') || '[]'
         );
-        const recentIndex=recentList.some((recentItem: any) =>
-          recentItem.name === res.location.name &&
-          recentItem.region === res.location.region
+        const recentIndex = recentList.some(
+          (recentItem: any) =>
+            recentItem.name === res.location.name &&
+            recentItem.region === res.location.region
         );
-       this.data.flag=recentIndex
+        this.data.flag = recentIndex;
         this.sharedService.updateData(this.data);
-        localStorage.setItem('weatherData', JSON.stringify(this.data)); 
+        localStorage.setItem('weatherData', JSON.stringify(this.data));
       },
       (error) => {
         console.error(error); // Log errors
